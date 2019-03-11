@@ -1,6 +1,5 @@
 import 'babel-polyfill'; // required to make promises work
-// import mysql from 'mysql';
-const mysql = require('mysql2/promise');
+import mysql from 'mysql';
 
 const func = async () => {
     const connection = await mysql.createConnection(
