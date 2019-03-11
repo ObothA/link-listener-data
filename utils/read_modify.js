@@ -1,7 +1,7 @@
 import 'babel-polyfill'; // required to make promises work
 import mysql from 'mysql';
 
-import assignStationId from './assignID';
+import { assignStationId } from './assignID';
 
 export const queryTable = async (table) => {
     const connection = await mysql.createConnection(
