@@ -11,14 +11,14 @@ const connection = mysql.createConnection({
 
 const queryTable = async (table) => {
     
-    const QUERY_OTHER_TABLES = `SELECT id,NAME FROM ${table} WHERE stationID=111`;
-    const QUERY_ELECTRON  = `SELECT id,stationname FROM ${table} WHERE stationID=111`
+    const QUERY_TABLES_NAME = `SELECT id,NAME FROM ${table} WHERE stationID=111`;
+    const QUERY_TABLES_NO_NAME  = `SELECT id,stationname FROM ${table} WHERE stationID=111`
 
     var QUERY;
-    if(table === 'Electron'){
-        QUERY = QUERY_ELECTRON;
+    if(table === 'Electron' || table === 'GeneralTable'){
+        QUERY = QUERY_TABLES_NO_NAME;
     } else {
-        QUERY = QUERY_OTHER_TABLES;
+        QUERY = QUERY_TABLES_NAME;
     }
 
     connection.query(QUERY, (queryError, result, fields) => {
@@ -35,6 +35,8 @@ const queryTable = async (table) => {
     //     }
     // });
 }
+
+
 
 
 const assignStationId = (result, connection, table) => {
@@ -99,5 +101,5 @@ const assignStationId = (result, connection, table) => {
     console.log();
 }
 
-queryTable('Electron');
-// queryTable('');
+// queryTable('Electron');
+queryTable('GeneralTable');
