@@ -40,6 +40,8 @@ const queryTable = async (table) => {
 
 
 const assignStationId = (result, connection, table) => {
+    var counter = true;
+    while(counter){
     console.log();
     console.log(`************ ${table} batch started`);
     console.log();
@@ -109,6 +111,18 @@ const assignStationId = (result, connection, table) => {
     console.log(`${table} batch done`);
     console.log('**************');
     console.log();
+
+    const counterQuery = `SELECT * FROM ${table} WHERE stationID=111 LIMIT 10`;
+
+    connection.query(counterQuery, (queryError, result, fields) => {
+        if (queryError) {
+            throw queryError;
+        } else if(result.length < 1){
+            console.log('#######################################################################################################################################################################################################');            counter = false
+        }
+    });
+
+}
 }
 
 // queryTable('Electron');
