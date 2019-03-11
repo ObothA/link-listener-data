@@ -76,7 +76,8 @@ const assignStationId = (result, connection, table) => {
             'byd-1' : 48,
             /** duplicates to bend the rules for naming errors*/
             'jjag' : 50,
-            'mak' : 53
+            'mak' : 53,
+            'ebbg3' : 52
         };
 
         const stationID = STATION_NAMES[stationName];
