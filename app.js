@@ -65,6 +65,8 @@ const assignStationId = (result, connection, table) => {
             if (!isNaN(stationNumber2)) {
                 stationName = `${stationName}_${stationNumber2}`;
             }
+        } else if(!stationName){
+            console.log(result);
         }
 
         const STATION_NAMES = {
@@ -80,7 +82,7 @@ const assignStationId = (result, connection, table) => {
             'ebbg3' : 52,
             'makg2': 53,
             'fos' : 53,
-            'fios' : 53,
+            'fios' : 53, 
             'byd' : 48,
             'jjag3' : 50,
             'mygg3' : 54,
