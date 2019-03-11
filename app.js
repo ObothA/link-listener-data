@@ -11,7 +11,10 @@ const func = async () => {
             multipleStatements: true,
         });
 
-    console.log(connection);
+
+    const QUERY = 'SELECT * FROM Electron WHERE id=1';
+    const RESULT = await connection.execute(QUERY);
+    console.log(RESULT);
 
     connection.end((connectionError) => {
         console.log(connectionError);
@@ -19,3 +22,4 @@ const func = async () => {
 }
 
 func();
+console.log('outsyd function');
