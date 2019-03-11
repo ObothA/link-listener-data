@@ -74,7 +74,7 @@ const assignStationId = (result, connection, table) => {
 
         console.log(STATION_NAMES[stationName]);
 
-        const updateQuery = `UPDATE ${table} SET stationID = '${StationID}' WHERE id = ${id}`;
+        // const updateQuery = `UPDATE ${table} SET stationID = '${StationID}' WHERE id = ${id}`;
 
 
     });
