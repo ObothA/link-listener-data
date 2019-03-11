@@ -66,7 +66,7 @@ const assignStationId = (result, connection, table) => {
                 stationName = `${stationName}_${stationNumber2}`;
             }
         } else if(!stationName){
-            console.log(result);
+            // console.log(result);
         }
 
         const STATION_NAMES = {
