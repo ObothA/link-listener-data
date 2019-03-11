@@ -13,8 +13,13 @@ const func = async () => {
 
 
     const QUERY = 'SELECT * FROM Electron WHERE id=1';
-    const RESULT = await connection.execute(QUERY);
-    console.log(RESULT);
+    connection.query(QUERY, (queryError, result, fields) => {
+        if (queryError) {
+          throw queryError;
+        } else {
+            console.log(result);
+        }
+    });
 
     connection.end((connectionError) => {
         console.log(connectionError);
