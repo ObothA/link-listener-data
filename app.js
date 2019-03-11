@@ -12,7 +12,7 @@ const connection = mysql.createConnection({
 const queryTable = async (table) => {
     
     const QUERY_TABLES_NAME = `SELECT id,NAME FROM ${table} WHERE stationID=111 LIMIT 10000`;
-    const QUERY_TABLES_NO_NAME  = `SELECT id,stationname FROM ${table} WHERE stationID=111 LIMIT 1000000`
+    const QUERY_TABLES_NO_NAME  = `SELECT id,stationname FROM ${table} WHERE stationID=111 LIMIT 800000`
 
     var QUERY;
     if(table === 'Electron' || table === 'GeneralTable'){
@@ -80,7 +80,8 @@ const assignStationId = (result, connection, table) => {
             'ebbg3' : 52,
             'makg2': 53,
             'fos' : 53,
-            'fios' : 53
+            'fios' : 53,
+            'byd' : 48
         };
 
         const stationID = STATION_NAMES[stationName];
