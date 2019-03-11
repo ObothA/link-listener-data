@@ -11,8 +11,8 @@ const connection = mysql.createConnection({
 
 const queryTable = async (table) => {
     
-    const QUERY_TABLES_NAME = `SELECT id,NAME FROM ${table} WHERE stationID=111 LIMIT 50`;
-    const QUERY_TABLES_NO_NAME  = `SELECT id,stationname FROM ${table} WHERE stationID=111 LIMIT 50`
+    const QUERY_TABLES_NAME = `SELECT id,NAME FROM ${table} WHERE stationID=111 LIMIT 5`;
+    const QUERY_TABLES_NO_NAME  = `SELECT id,stationname FROM ${table} WHERE stationID=111 LIMIT 5`
 
     var QUERY;
     if(table === 'Electron' || table === 'GeneralTable'){
@@ -29,11 +29,7 @@ const queryTable = async (table) => {
         }
     });
 
-    // connection.end((disConnectionError) => {
-    //     if(disConnectionError){
-    //         console.log(disConnectionError);
-    //     }
-    // });
+    
 }
 
 
