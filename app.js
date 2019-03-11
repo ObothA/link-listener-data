@@ -13,7 +13,16 @@ const queryTable = async (table) => {
         });
 
 
-    const QUERY = `SELECT id,NAME,stationname FROM ${table} WHERE stationID=111`;
+    const QUERY_OTHER_TABLES = `SELECT id,NAME FROM ${table} WHERE stationID=111`;
+    const QUERY_ELECTRON  = `SELECT id,stationname FROM ${table} WHERE stationID=111`
+
+    var QUERY;
+    if(table === 'Electron'){
+        QUERY = QUERY_ELECTRON;
+    } else {
+        QUERY = QUERY_OTHER_TABLES;
+    }
+
     connection.query(QUERY, (queryError, result, fields) => {
         if (queryError) {
             throw queryError;
