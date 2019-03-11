@@ -112,4 +112,5 @@ const assignStationId = (result, connection, table) => {
 }
 
 // queryTable('Electron');
-queryTable('GeneralTable');
+// queryTable('GeneralTable');
+queryTable('GroundNode');
