@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "babel": "./node_modules/.bin/babel app.js --out-dir src",
+    "babel": "./node_modules/.bin/babel --plugins transform-es2015-modules-commonjs app.js --out-dir src",
     "app": "node src/app"
   },
   "repository": {
@@ -26,6 +26,7 @@
     "mysql": "^2.16.0"
   },
   "devDependencies": {
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "eslint": "^5.15.1"
   }
 }
