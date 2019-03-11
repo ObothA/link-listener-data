@@ -72,12 +72,29 @@ const assignStationId = (result, connection, table) => {
             'byd-1' : 48
         };
 
-        console.log(STATION_NAMES[stationName]);
+        const stationID = STATION_NAMES[stationName];
 
-        // const updateQuery = `UPDATE ${table} SET stationID = '${StationID}' WHERE id = ${id}`;
+        console.log();
+
+        if(stationID){
+            const updateQuery = `UPDATE ${table} SET stationID = '${stationID}' WHERE id = ${id}`;
+
+            connection.query(updateQuery, (updateError, result, fields) => { 
+                if (updateError) {
+                  throw updateError;
+                }
+              });
+        } else {
+            console.log(`${stationName} No station for this entry`)
+        }
+
+        
 
 
     });
+    console.log()
+    console.log('batch done');
+    console.log();
 }
 
 queryTable('Electron');
