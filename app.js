@@ -38,6 +38,10 @@ const queryTable = async (table) => {
 
 
 const assignStationId = (result, connection, table) => {
+    console.log();
+    console.log(`************ ${table} batch started`);
+    console.log();
+
     result.map((dbField) => {
         const { id,NAME, stationname } = dbField;
 
@@ -67,7 +71,10 @@ const assignStationId = (result, connection, table) => {
             'kml' : 52,
             'jja' : 50,
             'byd-2' : 49,
-            'byd-1' : 48
+            'byd-1' : 48,
+            /** duplicates to bend the rules for naming errors*/
+            'jjag' : 50,
+            'mak' : 53
         };
 
         const stationID = STATION_NAMES[stationName];
@@ -85,9 +92,11 @@ const assignStationId = (result, connection, table) => {
         }
 
     });
+    console.log();
     console.log('************')
-    console.log('batch done');
+    console.log(`${table} batch done`);
     console.log('**************');
+    console.log();
 }
 
 queryTable('Electron');
