@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "babel": "./node_modules/.bin/babel app.js --out-dir src",
+    "build": "babel --presets es2015 -d src app.js",
     "app": "node src/app"
   },
   "repository": {
