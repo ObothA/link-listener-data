@@ -1,18 +1,17 @@
 import 'babel-polyfill'; // required to make promises work
 import mysql from 'mysql';
 
+const connection = mysql.createConnection(
+    {
+        host:'localhost', 
+        user: 'jmuhumuza', 
+        password: 'joshua', 
+        database: 'wdrDb',
+        multipleStatements: true,
+    });
 
 const queryTable = async (table) => {
-    const connection = await mysql.createConnection(
-        {
-            host:'localhost', 
-            user: 'jmuhumuza', 
-            password: 'joshua', 
-            database: 'wdrDb',
-            multipleStatements: true,
-        });
-
-
+    
     const QUERY_OTHER_TABLES = `SELECT id,NAME FROM ${table} WHERE stationID=111`;
     const QUERY_ELECTRON  = `SELECT id,stationname FROM ${table} WHERE stationID=111`
 
@@ -31,11 +30,11 @@ const queryTable = async (table) => {
         }
     });
 
-    connection.end((disConnectionError) => {
-        if(disConnectionError){
-            console.log(disConnectionError);
-        }
-    });
+    // connection.end((disConnectionError) => {
+    //     if(disConnectionError){
+    //         console.log(disConnectionError);
+    //     }
+    // });
 }
 
 
