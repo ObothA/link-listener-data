@@ -1,8 +1,7 @@
 import 'babel-polyfill'; // required to make promises work
 import mysql from 'mysql';
 
-const connection = mysql.createConnection(
-    {
+const connection = mysql.createConnection({
         host:'localhost', 
         user: 'jmuhumuza', 
         password: 'joshua', 
@@ -73,8 +72,6 @@ const assignStationId = (result, connection, table) => {
 
         const stationID = STATION_NAMES[stationName];
 
-        console.log();
-
         if(stationID){
             const updateQuery = `UPDATE ${table} SET stationID = '${stationID}' WHERE id = ${id}`;
 
@@ -84,16 +81,14 @@ const assignStationId = (result, connection, table) => {
                 }
               });
         } else {
-            console.log(`${stationName} No station for this entry`)
+            console.log(`${stationName} No station for this entry ${NAME}`)
         }
 
-        
-
-
     });
-    console.log()
+    console.log('************')
     console.log('batch done');
-    console.log();
+    console.log('**************');
 }
 
 queryTable('Electron');
+// queryTable('');
