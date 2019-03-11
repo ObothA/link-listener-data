@@ -11,8 +11,8 @@ const connection = mysql.createConnection({
 
 const queryTable = async (table) => {
     
-    const QUERY_TABLES_NAME = `SELECT id,NAME FROM ${table} WHERE stationID=111`;
-    const QUERY_TABLES_NO_NAME  = `SELECT id,stationname FROM ${table} WHERE stationID=111`
+    const QUERY_TABLES_NAME = `SELECT id,NAME FROM ${table} WHERE stationID=111 LIMIT 10000`;
+    const QUERY_TABLES_NO_NAME  = `SELECT id,stationname FROM ${table} WHERE stationID=111 LIMIT 10000`
 
     var QUERY;
     if(table === 'Electron' || table === 'GeneralTable'){
