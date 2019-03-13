@@ -22,19 +22,12 @@ function App() {
         6 : 'TwoMeterNode'
     }
 
-    var status = false;
-    // status = queryTable(tables[table_counter], connection);
-
     setInterval(function () {
-        if (!status) {
-            status = queryTable(tables[table_counter], connection);
-            console.log(`status is ${status}`);
-        } else if(table_counter < 7){
-            console.log(`########  ${tables[table_counter]} is linked  ########`);
+        if(table_counter < 7){
             table_counter = table_counter + 1;
-            console.log(`table counter is ${table_counter}`)
-            status = false;
-            console.log(`status is ${status}`);
+            queryTable(tables[table_counter], connection);
+        } else {
+            table_counter = 1;
         }
     }, 5000);
 }
