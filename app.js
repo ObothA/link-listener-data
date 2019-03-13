@@ -14,12 +14,12 @@ function App() {
 
     var table_counter = 0;
     var tables = {
-        1 : 'Electron',
-        2 : 'GeneralTable',
-        3 : 'GroundNode',
-        4 : 'SinkNode',
-        5 : 'TenMeterNode',
-        6 : 'TwoMeterNode'
+        0 : 'Electron',
+        1 : 'GeneralTable',
+        2 : 'GroundNode',
+        3 : 'SinkNode',
+        4 : 'TenMeterNode',
+        5 : 'TwoMeterNode'
     }
 
     setInterval(function () {
