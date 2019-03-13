@@ -1,5 +1,6 @@
 
 import 'babel-polyfill'; // required to make promises work
+require("babel-core/register");
 // import mysql from 'mysql';
 
 async function Main(){
