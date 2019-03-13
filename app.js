@@ -21,5 +21,7 @@ queryTable('GroundNode', connection);
 //     , 1000);
 // }
 
-App();
 }
+
+
+App();
