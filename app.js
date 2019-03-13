@@ -24,11 +24,10 @@ function App() {
 
     setInterval(function () {
         if(table_counter < 6){
-            table_counter = table_counter + 1;
             queryTable(tables[table_counter], connection);
-            console.log(`table counter is ${table_counter}`)
+            table_counter = table_counter + 1;
         } else {
-            table_counter = 1;
+            table_counter = 0;
         }
     }, 5000);
 }
