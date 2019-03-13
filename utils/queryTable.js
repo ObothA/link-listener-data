@@ -11,17 +11,21 @@ function queryTable(table, connection){
         QUERY = QUERY_TABLES_NAME;
     }
 
+    var counter = true;
+    while(counter){
     connection.query(QUERY, (queryError, result, fields) => {
         if (queryError) {
             throw queryError;
-        } else {
+        } else if(result.length > 0){
             console.log();
             console.log(`working on table ${table}.....`);
-            console.log();
-            
             assignStationId(result,connection,table);
+        } else {
+            console.log(`${table} FIXED **************************`);
+            counter = false;
         }
     });
+}
 }
 
 module.exports = queryTable;
