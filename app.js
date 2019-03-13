@@ -50,7 +50,7 @@ function assignStationId(result, connection, table) {
         const NAME = dbField.NAME;
         const stationname = dbField.stationname
 
-        let stationName;
+        var stationName;
 
         if(!NAME && stationname){
             stationName = stationname; 
