@@ -15,6 +15,10 @@ const connection = mysql.createConnection({
 // queryTable('Electron');
 // queryTable('GeneralTable');
 queryTable('GroundNode', connection);
-}
+
+// setInterval(
+
+//     , 1000);
+// }
 
 App();
