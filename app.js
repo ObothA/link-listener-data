@@ -13,14 +13,15 @@ const connection = mysql.createConnection({
 
 // queryTable('Electron');
 // queryTable('GeneralTable');
+
 var status = true;
 status = queryTable('GroundNode', connection);
 
 setInterval(function(){
     if(!status){
         queryTable('GroundNode', connection);
-    }
-}, 2000);
+    } 
+}, 5000);
 }
 
 
