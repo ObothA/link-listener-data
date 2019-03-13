@@ -20,7 +20,9 @@ status = queryTable('GroundNode', connection);
 setInterval(function(){
     if(!status){
         queryTable('GroundNode', connection);
-    } 
+    } else {
+        console.log('######## table is linked  ########');
+    }
 }, 5000);
 }
 
