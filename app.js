@@ -22,7 +22,7 @@ connection.end();
 }
 
 const queryTable = async (table, connection) => {
-    var counter = true;
+   //var counter = true;
    // while(counter){
     const QUERY_TABLES_NAME = `SELECT id,NAME FROM ${table} WHERE stationID=111 LIMIT 5`;
     const QUERY_TABLES_NO_NAME  = `SELECT id,stationname FROM ${table} WHERE stationID=111 LIMIT 5`
@@ -42,6 +42,9 @@ const queryTable = async (table, connection) => {
         }
     });
 
+
+    const result = await connection.execute(QUERY);
+    console.log(result);
     // while loop counter
     // const counterQuery = `SELECT * FROM ${table} WHERE stationID=111 LIMIT 1`;
 
