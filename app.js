@@ -15,7 +15,6 @@ const connection = mysql.createConnection({
 // queryTable('GeneralTable');
 queryTable('GroundNode', connection);
 
-connection.end();
 }
 
 function queryTable(table, connection){
