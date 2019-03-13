@@ -4,6 +4,7 @@ import 'babel-polyfill'; // required to make promises work
 // import mysql from 'mysql';
 
 const Main = async () => {
+console.log('main called');
 const mysql = require('mysql2/promise');
 
 const connection = await mysql.createConnection({
@@ -22,6 +23,7 @@ connection.end();
 }
 
 const queryTable = async (table, connection) => {
+    console.log('queryTable called');
    //var counter = true;
    // while(counter){
     const QUERY_TABLES_NAME = `SELECT id,NAME FROM ${table} WHERE stationID=111 LIMIT 5`;
@@ -63,6 +65,7 @@ const queryTable = async (table, connection) => {
 
 
 const assignStationId = (result, connection, table) => {
+    console.log('assignStationId called');
     
     console.log();
     console.log(`************ ${table} batch started`);
