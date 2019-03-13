@@ -26,6 +26,7 @@ function App() {
         if(table_counter < 7){
             table_counter = table_counter + 1;
             queryTable(tables[table_counter], connection);
+            console.log(`table counter is ${table_counter}`)
         } else {
             table_counter = 1;
         }
