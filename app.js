@@ -1,13 +1,9 @@
+import mysql from 'mysql';
 
-import 'babel-polyfill'; // required to make promises work
-require("babel-core/register");
-// import mysql from 'mysql';
-
-async function Main(){
+function Main(){
 console.log('main called');
-const mysql = require('mysql2/promise');
 
-const connection = await mysql.createConnection({
+const connection = mysql.createConnection({
         host:'localhost', 
         user: 'jmuhumuza', 
         password: 'joshua', 
@@ -22,10 +18,7 @@ queryTable('GroundNode', connection);
 connection.end();
 }
 
-async function queryTable(table, connection){
-    console.log('queryTable called');
-   //var counter = true;
-   // while(counter){
+function queryTable(table, connection){
     const QUERY_TABLES_NAME = `SELECT id,NAME FROM ${table} WHERE stationID=111 LIMIT 5`;
     const QUERY_TABLES_NO_NAME  = `SELECT id,stationname FROM ${table} WHERE stationID=111 LIMIT 5`
 
@@ -43,30 +36,11 @@ async function queryTable(table, connection){
             assignStationId(result,connection,table);
         }
     });
-
-
-    const result = await connection.execute(QUERY);
-    console.log(result);
-    // while loop counter
-    // const counterQuery = `SELECT * FROM ${table} WHERE stationID=111 LIMIT 1`;
-
-    // connection.query(counterQuery, (queryError, result, fields) => {
-    //     if (queryError) {
-    //         throw queryError;
-    //     } else if(result.length < 1){
-    //         counter = false
-    //         console.log('#######################################################################################################################################################################################################');            counter = false
-    //     }
-    // });
-    // }
 }
 
 
+function assignStationId(result, connection, table) {
 
-
-async function assignStationId(result, connection, table) {
-    console.log('assignStationId called');
-    
     console.log();
     console.log(`************ ${table} batch started`);
     console.log();
