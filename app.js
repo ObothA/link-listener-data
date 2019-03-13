@@ -12,7 +12,7 @@ function App() {
     });
 
 
-    var table_counter = 1;
+    var table_counter = 0;
     var tables = {
         1 : 'Electron',
         2 : 'GeneralTable',
@@ -23,7 +23,7 @@ function App() {
     }
 
     setInterval(function () {
-        if(table_counter < 7){
+        if(table_counter < 6){
             table_counter = table_counter + 1;
             queryTable(tables[table_counter], connection);
             console.log(`table counter is ${table_counter}`)
