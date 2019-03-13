@@ -3,8 +3,26 @@
 import 'babel-polyfill'; // required to make promises work
 // import mysql from 'mysql';
 
+async function Main(){
+console.log('main called');
+const mysql = require('mysql2/promise');
 
-const queryTable = async (table, connection) => {
+const connection = await mysql.createConnection({
+        host:'localhost', 
+        user: 'jmuhumuza', 
+        password: 'joshua', 
+        database: 'wdrDb',
+        multipleStatements: true,
+    });
+
+// queryTable('Electron');
+// queryTable('GeneralTable');
+queryTable('GroundNode', connection);
+
+connection.end();
+}
+
+async function queryTable(table, connection){
     console.log('queryTable called');
    //var counter = true;
    // while(counter){
@@ -46,7 +64,7 @@ const queryTable = async (table, connection) => {
 
 
 
-const assignStationId = (result, connection, table) => {
+async function assignStationId(result, connection, table) {
     console.log('assignStationId called');
     
     console.log();
@@ -121,23 +139,4 @@ const assignStationId = (result, connection, table) => {
 
 }
 
-const Main = async () => {
-    console.log('main called');
-    const mysql = require('mysql2/promise');
-    
-    const connection = await mysql.createConnection({
-            host:'localhost', 
-            user: 'jmuhumuza', 
-            password: 'joshua', 
-            database: 'wdrDb',
-            multipleStatements: true,
-        });
-    
-    // queryTable('Electron');
-    // queryTable('GeneralTable');
-    queryTable('GroundNode', connection);
-    
-    connection.end();
-    }
-    
 Main();
