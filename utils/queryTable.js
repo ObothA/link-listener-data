@@ -1,8 +1,8 @@
 const assignStationId = require('./assignStationId');
 
 function queryTable(table, connection) {
-    const QUERY_TABLES_NAME = `SELECT id,NAME FROM ${table} WHERE stationID=111 LIMIT 5000`;
-    const QUERY_TABLES_NO_NAME = `SELECT id,stationname FROM ${table} WHERE stationID=111 LIMIT 5000`
+    const QUERY_TABLES_NAME = `SELECT id,NAME FROM ${table} WHERE stationID=111 LIMIT 50000`;
+    const QUERY_TABLES_NO_NAME = `SELECT id,stationname FROM ${table} WHERE stationID=111 LIMIT 50000`
 
     var QUERY;
     if (table === 'Electron' || table === 'GeneralTable') {
@@ -17,7 +17,7 @@ function queryTable(table, connection) {
             throw queryError;
         } else if (result.length > 0) {
             console.log();
-            console.log(`working on table ${table}.....`);
+            console.log(`working on ${table}.....`);
             assignStationId(result, connection, table);
         } else {
             console.log(`${table} FIXED **************************`);
