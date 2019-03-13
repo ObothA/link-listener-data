@@ -1,11 +1,12 @@
 
 /** refactor to work correctly and to save memory. look for mysql async await*/
-
-
 import 'babel-polyfill'; // required to make promises work
-import mysql from 'mysql';
+// import mysql from 'mysql';
 
-const connection = mysql.createConnection({
+const Main = async () => {
+const mysql = require('mysql2/promise');
+
+const connection = await mysql.createConnection({
         host:'localhost', 
         user: 'jmuhumuza', 
         password: 'joshua', 
@@ -13,9 +14,16 @@ const connection = mysql.createConnection({
         multipleStatements: true,
     });
 
-const queryTable = async (table) => {
+// queryTable('Electron');
+// queryTable('GeneralTable');
+queryTable('GroundNode', connection);
+
+connection.end();
+}
+
+const queryTable = async (table, connection) => {
     var counter = true;
-    while(counter){
+   // while(counter){
     const QUERY_TABLES_NAME = `SELECT id,NAME FROM ${table} WHERE stationID=111 LIMIT 5`;
     const QUERY_TABLES_NO_NAME  = `SELECT id,stationname FROM ${table} WHERE stationID=111 LIMIT 5`
 
@@ -35,17 +43,17 @@ const queryTable = async (table) => {
     });
 
     // while loop counter
-    const counterQuery = `SELECT * FROM ${table} WHERE stationID=111 LIMIT 1`;
+    // const counterQuery = `SELECT * FROM ${table} WHERE stationID=111 LIMIT 1`;
 
-    connection.query(counterQuery, (queryError, result, fields) => {
-        if (queryError) {
-            throw queryError;
-        } else if(result.length < 1){
-            counter = false
-            console.log('#######################################################################################################################################################################################################');            counter = false
-        }
-    });
-    }
+    // connection.query(counterQuery, (queryError, result, fields) => {
+    //     if (queryError) {
+    //         throw queryError;
+    //     } else if(result.length < 1){
+    //         counter = false
+    //         console.log('#######################################################################################################################################################################################################');            counter = false
+    //     }
+    // });
+    // }
 }
 
 
@@ -125,7 +133,4 @@ const assignStationId = (result, connection, table) => {
 
 }
 
-
-// queryTable('Electron');
-// queryTable('GeneralTable');
-queryTable('GroundNode');
+Main();
