@@ -1,8 +1,8 @@
 const assignStationId = require('./assignStationId');
 
 function queryTable(table, connection) {
-    const QUERY_TABLES_NAME = `SELECT id,NAME FROM ${table} WHERE stationID=111 LIMIT 100`;
-    const QUERY_TABLES_NO_NAME = `SELECT id,stationname FROM ${table} WHERE stationID=111 LIMIT 100`
+    const QUERY_TABLES_NAME = `SELECT id,NAME FROM ${table} WHERE stationID=111 LIMIT 1000`;
+    const QUERY_TABLES_NO_NAME = `SELECT id,stationname FROM ${table} WHERE stationID=111 LIMIT 1000`
 
     var QUERY;
     if (table === 'Electron' || table === 'GeneralTable') {
