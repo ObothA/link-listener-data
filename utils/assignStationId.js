@@ -58,7 +58,7 @@ function assignStationId(result, connection, table) {
                 }
             });
         } else {
-            // console.log(`${stationName} No station for this entry ${NAME}`)
+            console.log(`${stationName} No station for this entry ${NAME}`)
         }
 
     });
