@@ -15,6 +15,8 @@ function queryTable(table, connection){
         if (queryError) {
             throw queryError;
         } else {
+            console.log();
+            console.log(`working on table ${table}.....`);
             assignStationId(result,connection,table);
         }
     });

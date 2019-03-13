@@ -1,9 +1,5 @@
 
 function assignStationId(result, connection, table) {
-    console.log();
-    console.log(`************ ${table} batch started`);
-    console.log();
-
     result.map((dbField) => {
         const id = dbField.id;
         const NAME = dbField.NAME;
@@ -54,6 +50,7 @@ function assignStationId(result, connection, table) {
         const stationID = STATION_NAMES[stationName];
 
         if(stationID){
+            console.log(`Fixing id ${stationID}`);
             const updateQuery = `UPDATE ${table} SET stationID = '${stationID}' WHERE id = ${id}`;
 
             connection.query(updateQuery, (updateError, result, fields) => { 
@@ -66,11 +63,6 @@ function assignStationId(result, connection, table) {
         }
 
     });
-    console.log();
-    console.log('************')
-    console.log(`${table} batch done`);
-    console.log('**************');
-    console.log();
 
 }
 
