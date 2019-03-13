@@ -17,6 +17,8 @@ function queryTable(table, connection){
         } else {
             console.log();
             console.log(`working on table ${table}.....`);
+            console.log();
+            
             assignStationId(result,connection,table);
         }
     });

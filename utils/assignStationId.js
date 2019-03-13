@@ -50,7 +50,7 @@ function assignStationId(result, connection, table) {
         const stationID = STATION_NAMES[stationName];
 
         if(stationID){
-            console.log(`Fixing id ${stationID}`);
+            console.log(`Fixing ${table} => id ${id}`);
             const updateQuery = `UPDATE ${table} SET stationID = '${stationID}' WHERE id = ${id}`;
 
             connection.query(updateQuery, (updateError, result, fields) => { 
