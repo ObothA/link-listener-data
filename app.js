@@ -1,5 +1,4 @@
 
-/** refactor to work correctly and to save memory. look for mysql async await*/
 import 'babel-polyfill'; // required to make promises work
 // import mysql from 'mysql';
 
