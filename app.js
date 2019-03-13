@@ -46,7 +46,9 @@ function assignStationId(result, connection, table) {
     console.log();
 
     result.map((dbField) => {
-        const { id,NAME, stationname } = dbField;
+        const id = dbField.id;
+        const NAME = dbField.NAME;
+        const stationname = dbField.stationname
 
         let stationName;
 
