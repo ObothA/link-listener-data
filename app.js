@@ -1,9 +1,8 @@
 const mysql = require('mysql');
 const queryTable = require('./utils/queryTable');
 
-function App(){
-console.log('main called');
 
+function App(){
 const connection = mysql.createConnection({
         host:'localhost', 
         user: 'jmuhumuza', 
@@ -14,14 +13,16 @@ const connection = mysql.createConnection({
 
 // queryTable('Electron');
 // queryTable('GeneralTable');
-queryTable('GroundNode', connection);
+var status = true;
+status = queryTable('GroundNode', connection);
 
-// setInterval(
-
-//     , 1000);
-// }
-
+setInterval(function(){
+    if(!status){
+        queryTable('GroundNode', connection);
+    }
+}, 2000);
 }
+
 
 
 App();
